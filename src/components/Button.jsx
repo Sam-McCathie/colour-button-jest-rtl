@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Button = () => {
+const Button = ({buttonState}) => {
   const [color, setColor] = useState({
     style: 'red',
     button: 'blue',
@@ -12,7 +12,10 @@ const Button = () => {
   };
 
   return (
-    <button style={{backgroundColor: color.style}} onClick={changeColor}>
+    <button
+      style={{backgroundColor: !buttonState ? color.style : 'grey'}}
+      disabled={buttonState}
+      onClick={changeColor}>
       Change to {color.button}
     </button>
   );

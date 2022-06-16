@@ -1,11 +1,18 @@
-import Default from './components/Default';
+import {useState} from 'react';
 import Button from './components/Button';
+import Checkbox from './components/Checkbox';
 
 function App() {
+  const [buttonState, setButtonState] = useState(false);
+
+  const toggleButton = () => {
+    setButtonState(!buttonState);
+  };
+
   return (
     <div>
-      {/* <Default /> */}
-      <Button />
+      <Button buttonState={buttonState} />
+      <Checkbox toggleButton={toggleButton} />
     </div>
   );
 }
